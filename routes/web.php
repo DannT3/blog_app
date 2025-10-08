@@ -3,10 +3,23 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
+use App\Models\Post;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/user', function() {
+    return view('user');
+});
+
+Route::get('/user/{id}', function(string $id) {
+    return 'User '.$id;
+});
+
+Route::get('/post', function(Post $postId) {
+    return 'Post '.$postId;
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
