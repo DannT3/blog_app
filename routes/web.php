@@ -17,8 +17,8 @@ Route::get('/user/{id}', function(string $id) {
     return 'User '.$id;
 });
 
-Route::get('/post', function(Post $postId) {
-    return 'Post '.$postId;
+Route::get('/post', function(int $post_id) {
+    return 'Post '.$post_id;
 });
 
 Route::view('dashboard', 'dashboard')
