@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
@@ -9,17 +11,15 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/user', function() {
-    return view('user');
-});
+Route::get('/user', [UserController::class, 'index']);
 
 Route::get('/user/{id}', function(string $id) {
     return 'User '.$id;
 });
 
-Route::get('/post', function(int $post_id) {
-    return 'Post '.$post_id;
-});
+Route::post("/create_post", [PostController::class, 'createPost']);
+
+Route::post("/auth", [UserController::class, 'authUser']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

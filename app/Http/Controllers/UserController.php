@@ -6,16 +6,23 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function authUser(Request $request)
+    public function index()
     {
-        if ($request->routeIs("/auth")) {
-        }
+        return 'Hello World!';
     }
 
-    public function loginUser()
+    public function registerUser(Request $request)
     {
-        //
+        return view("user.register");
     }
 
-    public function 
+    public function storeUser()
+    {
+
+    }
+
+    public function authUser()
+    {
+        
+    }
 }

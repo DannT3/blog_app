@@ -6,5 +6,13 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    //
+    public function createComment()
+    {
+        return view("comments.create");
+    }
+
+    public function storeComment(Request $request)
+    {
+        
+    }
 }
